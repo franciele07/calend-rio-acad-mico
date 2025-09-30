@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Título da Página</title>
-    asdfghjklasdfghjk
-  </head>
-  <body>
-    <!-- Conteúdo visível para o usuário -->
-  </body>
-</html>
+<div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="tipoUsuario">Sou:</label>
+      <select id="tipoUsuario" required>
+        <option value="">Selecione</option>
+        <option value="professor">Professor</option>
+        <option value="estudante">Estudante</option>
+      </select>
+
+      <div id="emailContainer" class="hidden">
+        <label for="email">E-mail do Professor:</label>
+        <input type="email" id="email" placeholder="professor@escola.com" />
+      </div>
+
+      <div id="matriculaContainer" class="hidden">
+        <label for="matricula">Matrícula do Estudante:</label>
+        <input type="text" id="matricula" placeholder="12345678" />
+      </div>
+
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
