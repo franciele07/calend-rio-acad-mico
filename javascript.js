@@ -1,43 +1,36 @@
-const tipoUsuario = document.getElementById("tipoUsuario");
-    const emailContainer = document.getElementById("emailContainer");
-    const matriculaContainer = document.getElementById("matriculaContainer");
+function gerarCalendario(ano, mes) {
+      const tabela = document.getElementById("tabelaCalendario");
+      const mesAno = document.getElementById("mesAno");
 
-    tipoUsuario.addEventListener("change", function () {
-      const tipo = this.value;
+      const nomesMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
-      if (tipo === "professor") {
-        emailContainer.classList.remove("hidden");
-        matriculaContainer.classList.add("hidden");
-      } else if (tipo === "estudante") {
-        matriculaContainer.classList.remove("hidden");
-        emailContainer.classList.add("hidden");
-      } else {
-        emailContainer.classList.add("hidden");
-        matriculaContainer.classList.add("hidden");
+      const primeiroDia = new Date(ano, mes, 1).getDay();
+      const ultimoDia = new Date(ano, mes + 1, 0).getDate();
+
+      mesAno.textContent = `${nomesMeses[mes]} ${ano}`;
+
+      let html = "<tr>";
+      const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+      for (let dia of diasSemana) {
+        html += `<th>${dia}</th>`;
       }
-    });
+      html += "</tr><tr>";
 
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const tipo = tipoUsuario.value;
-      const email = document.getElementById("email").value.trim();
-      const matricula = document.getElementById("matricula").value.trim();
-
-      if (tipo === "professor") {
-        if (!email) {
-          alert("Por favor, insira o e-mail do professor.");
-          return;
-        }
-        // Abrir nova aba para professor
-        window.open("pagina_professor.html?email=" + encodeURIComponent(email), "_blank");
-      } else if (tipo === "estudante") {
-        if (!matricula) {
-          alert("Por favor, insira a matrícula do estudante.");
-          return;
-        }
-        // Abrir nova aba para estudante
-        window.open("pagina_estudante.html?matricula=" + encodeURIComponent(matricula), "_blank");
-      } else {
-        alert("Selecione se você é professor ou estudante.");
+      for (let i = 0; i < primeiroDia; i++) {
+        html += "<td></td>";
       }
-    });
+
+      for (let dia = 1; dia <= ultimoDia; dia++) {
+        if ((primeiroDia + dia - 1) % 7 === 0 && dia !== 1) {
+          html += "</tr><tr>";
+        }
+        html += `<td>${dia}</td>`;
+      }
+
+      html += "</tr>";
+      tabela.innerHTML = html;
+    }
+
+    const hoje = new Date();
+    gerarCalendario(hoje.getFullYear(), hoje.g
