@@ -1,23 +1,22 @@
-<div class="login-box">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="tipoUsuario">Sou:</label>
-      <select id="tipoUsuario" required>
-        <option value="">Selecione</option>
-        <option value="professor">Professor</option>
-        <option value="estudante">Estudante</option>
-      </select>
+<h1>Bem-Vindo</h1>
 
-      <div id="emailContainer" class="hidden">
-        <label for="email">E-mail do Professor:</label>
-        <input type="email" id="email" placeholder="professor@escola.com" />
-      </div>
+  <div class="container">
+    <!-- Lista de Eventos -->
+    <div class="eventos">
+      <h2>Eventos</h2>
+      <ul>
+        <li>14/10 - Reunião de Equipe</li>
+        <li>16/10 - Apresentação do Projeto</li>
+        <li>20/10 - Entrega de Relatório</li>
+        <li>25/10 - Feedback com Cliente</li>
+      </ul>
+    </div>
 
-      <div id="matriculaContainer" class="hidden">
-        <label for="matricula">Matrícula do Estudante:</label>
-        <input type="text" id="matricula" placeholder="12345678" />
-      </div>
-
-      <button type="submit">Entrar</button>
-    </form>
+    <!-- Calendário -->
+    <div class="calendario">
+      <h2 id="mesAno">Outubro 2025</h2>
+      <table id="tabelaCalendario">
+        <!-- Gerado via JavaScript -->
+      </table>
+    </div>
   </div>
