@@ -1,51 +1,57 @@
 body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px;
     }
 
     h1 {
-      text-align: center;
-      color: #333;
+      font-size: 36px;
+      color: #1565c0;
+      margin-bottom: 40px;
     }
 
     .container {
       display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
+      gap: 40px;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
     }
 
-    .eventos {
-      width: 40%;
+    .eventos, .calendario {
       background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 45%;
     }
 
-    .eventos h2 {
+    .eventos h2, .calendario h2 {
+      text-align: center;
+      color: #1565c0;
       margin-top: 0;
-      color: #0077cc;
     }
 
     .eventos ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     .eventos li {
-      padding: 10px 0;
-      border-bottom: 1px solid #ddd;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
     }
 
-    .calendario {
-      width: 50%;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    .eventos li:last-child {
+      border-bottom: none;
     }
 
     table {
@@ -56,16 +62,30 @@ body {
 
     th, td {
       width: 14.28%;
-      padding: 10px;
+      height: 50px;
       text-align: center;
       border: 1px solid #ddd;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     th {
-      background-color: #0077cc;
+      background-color: #1565c0;
       color: white;
     }
 
-    td {
-      background-color: #f9f9f9;
+    td:hover {
+      background-color: #e3f2fd;
+    }
+
+    td.today {
+      background-color: #64b5f6;
+      color: white;
+      font-weight: bold;
+    }
+
+    td.selected {
+      background-color: #1976d2;
+      color: white;
+      font-weight: bold;
     }
