@@ -1,52 +1,71 @@
 body {
       font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
-      height: 100vh;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 20px;
+      background-color: #f5f5f5;
     }
 
-    .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 320px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .login-box h2 {
+    h1 {
       text-align: center;
-      margin-bottom: 20px;
+      color: #333;
     }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
     }
 
-    select, input {
+    .eventos {
+      width: 40%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .eventos h2 {
+      margin-top: 0;
+      color: #0077cc;
+    }
+
+    .eventos ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .eventos li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .calendario {
+      width: 50%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
+      border-collapse: collapse;
+      margin-top: 10px;
     }
 
-    button {
-      width: 100%;
+    th, td {
+      width: 14.28%;
       padding: 10px;
-      background-color: #0066cc;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #0077cc;
       color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
     }
 
-    button:hover {
-      background-color: #004999;
-    }
-
-    .hidden {
-      display: none;
+    td {
+      background-color: #f9f9f9;
     }
