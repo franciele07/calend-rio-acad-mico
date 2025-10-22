@@ -2,4 +2,16 @@ OBJETIVOS
 
 REQUISITOS FUNCIONAIS (RF)
 
+[RF-001] Login de Usuário
+
+Descrição: O sistema deve permitir que usuários da coodenação façam login usando e-mail e senha
+Prioridade: Alta
+Entrada: E-mail válido e senha
+Processamento: Validar credenciais no banco de dados
+Saída: Acesso ao sistema ou mensagem de erro
+Regras de Negócio: Senha deve ter no mínimo 8 caracteres
+Atores:Usuário da Coordenação
+
+
+
 REQUISITOS NÃO FUNCIONAIS (RNF)
