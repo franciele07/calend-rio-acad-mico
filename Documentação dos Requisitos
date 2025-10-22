@@ -30,9 +30,9 @@ Entrada: Título do evento, descrição, data/hora, tipo de evento, público-alv
 Processamento: Validação e gravação no banco de dados
 Saída: Evento visível no calendário principal para os usuários autorizados
 Regras de Negócio:Somente coordenadores ou administradores podem cadastrar eventos oficiais
-Atores: Coordenador pedagógico
+Atores: Coordenador pedagógico 
 
-Agendar Avaliações
+[RF-004] Agendar Avaliações
 Descrição: Permite agendar provas e trabalhos em dias específicos, exibindo-os no calendário.
 Prioridade: Alta
 Entrada: Disciplina, data, tipo de avaliação, descrição, turma
