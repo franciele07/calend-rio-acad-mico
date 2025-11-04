@@ -1,19 +1,16 @@
-<h1>Bem Vindo</h1>
+<div id="calendar"></div>
 
-  <div class="container">
-    <!-- Eventos -->
-    <div class="eventos">
-      <h2>Eventos</h2>
-      <ul id="lista-eventos">
-        <li>Selecione um dia para ver os eventos.</li>
-      </ul>
-    </div>
+<!-- Biblioteca FullCalendar (CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 
-    <!-- Calendário -->
-    <div class="calendario">
-      <h2 id="mesAno">Calendário</h2>
-      <table id="calendario">
-        <!-- JavaScript irá preencher aqui -->
-      </table>
-    </div>
+<!-- Modal simples para editar eventos -->
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+    <h3>Editar Evento</h3>
+    <input type="text" id="eventTitle" placeholder="Título do evento">
+    <button id="saveEvent">Salvar</button>
+    <button id="deleteEvent">Excluir</button>
+    <button id="closeModal">Fechar</button>
   </div>
+</div>
