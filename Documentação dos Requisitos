@@ -40,7 +40,61 @@ Entrada: Disciplina, data, tipo de avaliação, descrição, turma
 Processamento: Validação para evitar sobreposição de avaliações
 Saída: Evento de avaliação visível no calendário
 Regras de Negócio: Limitar a até 2 avaliações por dia para a mesma turma
-Atores: Professor, Coordenador
+Atores: Professor, Coordenador.
+
+[RF-005] Editar evento
+
+Descrição: Permitir modificar eventos cadastrados.
+Prioridade: Alta
+Entrada: Identificação do evento + dados atualizados.
+Processamento: Verificar permissões, atualizar informações.
+Saída: Evento atualizado no calendário.
+Regras de Negócio:
+RB01: Mudança de data de prova deve enviar notificação automática.
+Atores: Administrador, Coordenador, Professor.
+
+[RF-006] Excluir evento
+
+Descrição: Permitir que eventos sejam apagados do calendário.
+Prioridade: Alta
+Entrada: ID do evento.
+Processamento: Verificar permissão e remover registro.
+Saída: Evento removido.
+Regras de Negócio:
+RB02: Eventos não podem ser excluídos por alunos.
+Atores: Administrador, Coordenador.
+
+[RF-007] Filtrar eventos por categoria
+
+Descrição: Filtrar eventos por tipo (prova, reunião, aula, feriado).
+Prioridade: Média
+Entrada: Categoria selecionada.
+Processamento: Buscar eventos da categoria e renderizar.
+Saída: Lista filtrada.
+Regras de Negócio: Nenhuma.
+Atores: Todos os usuários.
+
+[RF-008] Pesquisar eventos
+
+Descrição: Permitir a busca de eventos por nome, data ou palavra-chave.
+Prioridade: Média
+Entrada: Termo de busca.
+Processamento: Consulta ao banco e retorno dos resultados.
+Saída: Lista de eventos encontrados.
+Regras de Negócio: Nenhuma.
+Atores: Todos.
+
+[RF-009] Controlar permissões de acesso
+
+Descrição: Definir permissões entre os diferentes tipos de usuários.
+Prioridade: Alta
+Entrada: Tentativa de executar ação restrita.
+Processamento: Checagem de perfil e permissão.
+Saída: Permissão concedida ou negada.
+Regras de Negócio:
+RB03: Alunos e Responsáveis têm acesso somente à visualização.
+RB04: Professores têm acesso limitado à própria turma.
+Atores: Todos os usuários.
 
 REQUISITOS NÃO FUNCIONAIS (RNF)
 
