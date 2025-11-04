@@ -1,111 +1,63 @@
-const eventosPorData = {
-      "2025-10-14": ["Reunião com a equipe", "Entrega de relatório"],
-      "2025-10-15": ["Apresentação de projeto", "Chamada com cliente"],
-      "2025-10-20": ["Revisão de código", "Planejamento semanal"]
-    };
+document.addEventListener('DOMContentLoaded', function () {
+  let calendarEl = document.getElementById('calendar');
+  let modal = document.getElementById('eventModal');
+  let eventTitleInput = document.getElementById('eventTitle');
+  let saveBtn = document.getElementById('saveEvent');
+  let deleteBtn = document.getElementById('deleteEvent');
+  let closeBtn = document.getElementById('closeModal');
+  let currentEvent = null;
 
-    const calendario = document.getElementById("calendario");
-    const listaEventos = document.getElementById("lista-eventos");
-    const tituloMes = document.getElementById("mesAno");
-
-    const hoje = new Date();
-    const mesAtual = hoje.getMonth();
-    const anoAtual = hoje.getFullYear();
-
-    let celulaSelecionada = null;
-
-    function gerarCalendario(mes, ano) {
-      calendario.innerHTML = "";
-
-      const diasSemana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-      const primeiroDia = new Date(ano, mes, 1).getDay();
-      const ultimoDia = new Date(ano, mes + 1, 0).getDate();
-
-      const thead = document.createElement("thead");
-      const headerRow = document.createElement("tr");
-
-      diasSemana.forEach(dia => {
-        const th = document.createElement("th");
-        th.textContent = dia;
-        headerRow.appendChild(th);
-      });
-      thead.appendChild(headerRow);
-      calendario.appendChild(thead);
-
-      const tbody = document.createElement("tbody");
-      let tr = document.createElement("tr");
-
-      // Preenche dias vazios antes do primeiro dia do mês
-      for (let i = 0; i < primeiroDia; i++) {
-        tr.appendChild(document.createElement("td"));
-      }
-
-      for (let dia = 1; dia <= ultimoDia; dia++) {
-        const data = new Date(ano, mes, dia);
-        const td = document.createElement("td");
-        td.textContent = dia;
-
-        const dataFormatada = data.toISOString().split("T")[0];
-
-        // Marcar o dia de hoje
-        if (
-          dia === hoje.getDate() &&
-          mes === hoje.getMonth() &&
-          ano === hoje.getFullYear()
-        ) {
-          td.classList.add("today");
-        }
-
-        // Clique no dia
-        td.addEventListener("click", () => {
-          if (celulaSelecionada) {
-            celulaSelecionada.classList.remove("selected");
-            if (celulaSelecionada.classList.contains("today")) {
-              celulaSelecionada.classList.add("today");
-            }
-          }
-          td.classList.add("selected");
-          celulaSelecionada = td;
-
-          mostrarEventos(dataFormatada);
+  let calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    locale: 'pt-br',
+    editable: true,
+    selectable: true,
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,listWeek'
+    },
+    dateClick: function (info) {
+      let title = prompt('Digite o nome do evento:');
+      if (title) {
+        calendar.addEvent({
+          title: title,
+          start: info.date,
+          allDay: true
         });
-
-        tr.appendChild(td);
-
-        if (data.getDay() === 6) {
-          tbody.appendChild(tr);
-          tr = document.createElement("tr");
-        }
       }
-
-      // Preencher a última linha
-      if (tr.children.length > 0) {
-        while (tr.children.length < 7) {
-          tr.appendChild(document.createElement("td"));
-        }
-        tbody.appendChild(tr);
-      }
-
-      calendario.appendChild(tbody);
-
-      const nomeMes = data.toLocaleString('pt-BR', { month: 'long' });
-      tituloMes.textContent = `${nomeMes.charAt(0).toUpperCase() + nomeMes.slice(1)} ${ano}`;
+    },
+    eventClick: function (info) {
+      currentEvent = info.event;
+      eventTitleInput.value = currentEvent.title;
+      modal.style.display = 'block';
     }
+  });
 
-    function mostrarEventos(dataFormatada) {
-      listaEventos.innerHTML = "";
-
-      if (eventosPorData[dataFormatada]) {
-        eventosPorData[dataFormatada].forEach(evento => {
-          const li = document.createElement("li");
-          li.textContent = evento;
-          listaEventos.appendChild(li);
-        });
-      } else {
-        const li = document.createElement("li");
-        li.textContent = "Nenhum evento para este dia.";
-        listaEventos.appendChild(li);
-      }
+  // Salvar alterações no evento
+  saveBtn.onclick = function () {
+    if (currentEvent) {
+      currentEvent.setProp('title', eventTitleInput.value);
+      modal.style.display = 'none';
     }
+  };
 
-    gerarCalendario(mesAtual, anoAtual);
+  // Excluir evento
+  deleteBtn.onclick = function () {
+    if (currentEvent && confirm('Tem certeza que deseja excluir este evento?')) {
+      currentEvent.remove();
+      modal.style.display = 'none';
+    }
+  };
+
+  // Fechar modal
+  closeBtn.onclick = function () {
+    modal.style.display = 'none';
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) modal.style.display = 'none';
+  };
+
+  calendar.render();
+});
