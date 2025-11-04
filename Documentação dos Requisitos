@@ -33,13 +33,97 @@ Regras de Negócio:Somente coordenadores ou administradores podem cadastrar even
 Atores: Coordenador pedagógico 
 
 [RF-004] Agendar Avaliações
+
 Descrição: Permite agendar provas e trabalhos em dias específicos, exibindo-os no calendário.
 Prioridade: Alta
 Entrada: Disciplina, data, tipo de avaliação, descrição, turma
 Processamento: Validação para evitar sobreposição de avaliações
 Saída: Evento de avaliação visível no calendário
-Regras de Negócio:
-Limitar a até 2 avaliações por dia para a mesma turma
+Regras de Negócio: Limitar a até 2 avaliações por dia para a mesma turma
 Atores: Professor, Coordenador
 
 REQUISITOS NÃO FUNCIONAIS (RNF)
+
+[RNF-001] Tempo de resposta
+
+Descrição: O sistema deve carregar páginas do calendário em até 2 segundos.
+Prioridade: Alta
+Entrada: Solicitação de acesso a uma página ou evento.
+Processamento: Otimização de consultas e carregamento assíncrono.
+Saída: Página exibida rapidamente.
+Regras de Negócio: Não se aplicam diretamente (RNF).
+Atores: Usuário geral (alunos, professores, responsáveis).
+
+[RNF-002] Escalabilidade
+
+Descrição: O sistema deve suportar aumento de usuários simultâneos sem perda perceptível de desempenho.
+Prioridade: Média
+Entrada: Acesso simultâneo de vários usuários.
+Processamento: Balanceamento de carga e recursos elásticos.
+Saída: Manutenção do desempenho mesmo com alto tráfego.
+Regras de Negócio: Nenhuma.
+Atores: Todos os usuários.
+
+[RNF-003] Controle de acesso
+
+Descrição: Apenas usuários autorizados podem alterar eventos do calendário.
+Prioridade: Alta
+Entrada: Tentativa de criar/editar/excluir eventos.
+Processamento: Verificação de permissões e autenticação.
+Saída: Acesso permitido ou negado.
+Regras de Negócio:
+RB01: Professores só podem editar eventos da própria turma.
+RB02: Administradores podem editar qualquer calendário.
+Atores: Administrador, Professor.
+
+[RNF-004] Interface intuitiva
+
+Descrição: Qualquer evento deve ser acessado em no máximo 3 cliques.
+Prioridade: Alta
+Entrada: Clique do usuário.
+Processamento: Navegação simples e otimizada.
+Saída: Evento exibido.
+Regras de Negócio: Nenhuma.
+Atores: Alunos, Professores, Responsáveis.
+
+[RNF-005] Disponibilidade
+
+Descrição: O sistema deve estar disponível 99,5% do tempo no ano letivo.
+Prioridade: Alta
+Entrada: Requisições ao sistema.
+Processamento: Monitoramento e redundância.
+Saída: Sistema sempre ativo.
+Regras de Negócio: Nenhuma.
+Atores: Todos os usuários.
+
+[RNF-006] Backup
+
+Descrição: O sistema deve fazer backups automáticos diariamente.
+Prioridade: Média
+Entrada: Agendamento de backup.
+Processamento: Copiar banco de dados para armazenamento seguro.
+Saída: Backup concluído.
+Regras de Negócio:
+RB03: Backups devem ser armazenados por 90 dias.
+Atores: Administrador (monitoramento).
+
+[RNF-007] Código modular
+
+Descrição: O sistema deve ser desenvolvido de forma modular e documentada para facilitar manutenção.
+Prioridade: Média
+Entrada: Solicitações de alteração ou atualização.
+Processamento: Arquitetura de componentes independentes.
+Saída: Componentes atualizados sem afetar o restante.
+Regras de Negócio: Nenhuma.
+Atores: Equipe de desenvolvimento.
+
+[RNF-008] Multi-dispositivo
+
+Descrição: O calendário deve funcionar em celulares, tablets e PCs.
+Prioridade: Média
+Entrada: Acesso via diferentes dispositivos.
+Processamento: Ajuste automático do layout responsivo.
+Saída: Interface adequada ao tamanho da tela.
+Regras de Negócio: Nenhuma.
+Atores: Todos os usuários.
+
