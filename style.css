@@ -1,91 +1,49 @@
-body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e3f2fd, #ffffff);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 30px;
-    }
 
-    h1 {
-      font-size: 36px;
-      color: #1565c0;
-      margin-bottom: 40px;
-    }
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: #f5f7fa;
+}
 
-    .container {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      width: 100%;
-      max-width: 900px;
-    }
+#calendar {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
 
-    .eventos, .calendario {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      width: 45%;
-    }
+/* Estilo do modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
 
-    .eventos h2, .calendario h2 {
-      text-align: center;
-      color: #1565c0;
-      margin-top: 0;
-    }
-
-    .eventos ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .eventos li {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    .eventos li:last-child {
-      border-bottom: none;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      width: 14.28%;
-      height: 50px;
-      text-align: center;
-      border: 1px solid #ddd;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    th {
-      background-color: #1565c0;
-      color: white;
-    }
-
-    td:hover {
-      background-color: #e3f2fd;
-    }
-
-    td.today {
-      background-color: #64b5f6;
-      color: white;
-      font-weight: bold;
-    }
-
-    td.selected {
-      background-color: #1976d2;
-      color: white;
-      font-weight: bold;
-    }
+.modal-content {
+  background: white;
+  margin: auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+.modal-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+}
+.modal-content button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#saveEvent { background-color: #4CAF50; color: white; }
+#deleteEvent { background-color: #e74c3c; color: white; }
+#closeModal { background-color: #999; color: white; }
