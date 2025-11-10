@@ -1,0 +1,113 @@
+html
+<div id="container">
+
+  <!-- Tela de Login -->
+  <div id="login-screen" class="screen active">
+    <h2>Login</h2>
+    <input id="login-email" type="email" placeholder="Email"><br>
+    <input id="login-password" type="password" placeholder="Senha"><br>
+    <button onclick="login()">Entrar</button>
+
+    <p>Ainda não tem conta? <a href="#" onclick="showRegister()">Cadastre-se</a></p>
+  </div>
+
+  <!-- Tela de Cadastro -->
+  <div id="register-screen" class="screen">
+    <h2>Cadastro</h2>
+    <input id="reg-name" type="text" placeholder="Nome completo"><br>
+    <input id="reg-email" type="email" placeholder="Email"><br>
+    <input id="reg-password" type="password" placeholder="Senha"><br>
+    <button onclick="register()">Cadastrar</button>
+
+    <p>Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
+  </div>
+</div>
+
+
+CSS
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0A2A66; /* azul escuro */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#container {
+  width: 300px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-top: 4px solid #144395; /* azul médio */
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+h2 {
+  color: #0A2A66;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #144395;
+  border-radius: 5px;
+  background: #f1f4ff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #144395;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #0A2A66; /* azul escuro */
+}
+
+a {
+  color: #144395;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+JavaScript
+
+  function showRegister() {
+  document.getElementById("login-screen").classList.remove("active");
+  document.getElementById("register-screen").classList.add("active");
+}
+
+function showLogin() {
+  document.getElementById("register-screen").classList.remove("active");
+  document.getElementById("login-screen").classList.add("active");
+}
+
+function register() {
+  alert("Cadastro realizado com sucesso! (exemplo)");
+  showLogin();
+}
+
+function login() {
+  alert("Login efetuado! (exemplo)");
+}
