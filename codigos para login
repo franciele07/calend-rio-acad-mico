@@ -1,5 +1,4 @@
-html
-
+HTML
 
 <div id="container">
 
@@ -30,19 +29,21 @@ CSS
 
 body {
   font-family: Arial, sans-serif;
-  background: #0A2A66; /* azul escuro */
+  background: #001133; /* azul muito escuro */
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  color: white;
 }
 
 #container {
   width: 300px;
   padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  border-top: 4px solid #144395; /* azul médio */
+  background: white; /* branco */
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+  border-top: 4px solid #002a6e; /* azul escuro */
+  color: #001133; /* texto interno escuro */
 }
 
 .screen {
@@ -54,24 +55,23 @@ body {
 }
 
 h2 {
-  color: #0A2A66;
+  color: #002a6e; /* azul escuro */
   text-align: center;
-  margin-bottom: 15px;
 }
 
 input {
   width: 100%;
   padding: 10px;
   margin: 6px 0;
-  border: 1px solid #144395;
+  border: 1px solid #b0c4ff;
   border-radius: 5px;
-  background: #f1f4ff;
+  background: #f4f7ff;
 }
 
 button {
   width: 100%;
   padding: 10px;
-  background: #144395;
+  background: #002a6e; /* azul muito escuro */
   color: white;
   border: none;
   border-radius: 5px;
@@ -80,12 +80,17 @@ button {
 }
 
 button:hover {
-  background: #0A2A66; /* azul escuro */
+  background: #001d4d; /* ainda mais escuro */
+}
+
+p {
+  color: #001133;
 }
 
 a {
-  color: #144395;
+  color: #002a6e;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
@@ -95,7 +100,7 @@ a:hover {
 
 JavaScript
 
-  function showRegister() {
+function showRegister() {
   document.getElementById("login-screen").classList.remove("active");
   document.getElementById("register-screen").classList.add("active");
 }
