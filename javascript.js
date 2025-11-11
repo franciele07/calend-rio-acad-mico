@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
       right: 'dayGridMonth,timeGridWeek,listWeek'
     },
     dateClick: function (info) {
+      // Bloquear datas anteriores a hoje (permitir hoje e futuras)
+      const clicked = new Date(info.date.getFullYear(), info.date.getMonth(), info.date.getDate());
+      const today = new Date();
+      today.setHours(0,0,0,0);
+
+      if (clicked < today) {
+        alert('Não é permitido criar eventos em datas passadas. Escolha hoje ou uma data futura.');
+        return;
+      }
+
       let title = prompt('Digite o nome do evento:');
       if (title) {
         calendar.addEvent({
