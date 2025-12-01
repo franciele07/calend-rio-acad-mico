@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let singleClickTimer = null;
   const DOUBLE_THRESHOLD = 350; // milliseconds
   let pendingDate = null;
-  window.isAuthenticated = window.isAuthenticated || false; // session flag (global)
+  window.isAuthenticated = (localStorage.getItem('isAuthenticated') === '1') || false; // session flag (global)
 
   let calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     window.isAuthenticated = true; // mark session as authenticated
+    localStorage.setItem('isAuthenticated','1');
     authModal.style.display = 'none';
     // after successful auth, create event for pending date
     if (pendingDate) createEventForDate(pendingDate);
@@ -185,6 +186,7 @@ function login() {
   }
   window.isAuthenticated = true;
   alert('Login efetuado! (exemplo)');
+  localStorage.setItem('isAuthenticated','1');
   // After login, redirect to index if needed
   if (window.location.pathname.endsWith('login.html')) {
     window.location.href = '/';
