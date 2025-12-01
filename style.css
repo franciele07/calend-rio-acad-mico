@@ -123,3 +123,24 @@ body {
 }
 
 /* ===== end login styles ===== */
+
+/* Styles for authentication modal */
+.auth-modal-content {
+  width: 340px;
+  padding: 16px;
+}
+.auth-modal-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.auth-modal-content button {
+  margin: 6px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+

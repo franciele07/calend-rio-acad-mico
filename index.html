@@ -28,5 +28,16 @@
     <!-- Scripts: FullCalendar (CDN) e JS locais -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
     <script src="app.js"></script>
+    
+    <!-- Autenticação modal (mostrada quando o usuário dá 2 cliques para adicionar evento) -->
+    <div id="authModal" class="modal">
+      <div class="modal-content auth-modal-content">
+        <h3>Autenticação</h3>
+        <input id="authEmail" type="email" placeholder="Email"><br>
+        <input id="authPassword" type="password" placeholder="Senha"><br>
+        <button id="authSubmit">Entrar</button>
+        <button id="authCancel">Cancelar</button>
+      </div>
+    </div>
   </body>
 </html>
