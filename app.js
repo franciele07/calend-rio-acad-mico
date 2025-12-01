@@ -1,3 +1,6 @@
+// app.js - concatenated from javascript.js + login.js
+
+// ----- javascript.js content -----
 document.addEventListener('DOMContentLoaded', function () {
   let calendarEl = document.getElementById('calendar');
   let modal = document.getElementById('eventModal');
@@ -71,3 +74,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   calendar.render();
 });
+
+// ----- login.js content -----
+function showRegister() {
+  document.getElementById("login-screen").classList.remove("active");
+  document.getElementById("register-screen").classList.add("active");
+}
+
+function showLogin() {
+  document.getElementById("register-screen").classList.remove("active");
+  document.getElementById("login-screen").classList.add("active");
+}
+
+function register() {
+  alert("Cadastro realizado com sucesso! (exemplo)");
+  showLogin();
+}
+
+function login() {
+  alert("Login efetuado! (exemplo)");
+}

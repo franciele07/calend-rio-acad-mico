@@ -51,7 +51,8 @@ body {
 
 /* ===== LOGIN STYLES (migrated from login.css) ===== */
 
-body {
+/* Scopo os estilos de login com a classe .login-page para evitar conflitos com o calendário */
+.login-page {
   font-family: Arial, sans-serif;
   background: #001133; /* azul muito escuro */
   display: flex;
@@ -60,7 +61,7 @@ body {
   color: white;
 }
 
-#container {
+.login-page #container {
   width: 300px;
   padding: 20px;
   background: white; /* branco */
@@ -70,20 +71,20 @@ body {
   color: #001133; /* texto interno escuro */
 }
 
-.screen {
+.login-page .screen {
   display: none;
 }
 
-.screen.active {
+.login-page .screen.active {
   display: block;
 }
 
-h2 {
+.login-page h2 {
   color: #002a6e; /* azul escuro */
   text-align: center;
 }
 
-input {
+.login-page input {
   width: 100%;
   padding: 10px;
   margin: 6px 0;
@@ -92,7 +93,7 @@ input {
   background: #f4f7ff;
 }
 
-button {
+.login-page button {
   width: 100%;
   padding: 10px;
   background: #002a6e; /* azul muito escuro */
@@ -103,21 +104,21 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+.login-page button:hover {
   background: #001d4d; /* ainda mais escuro */
 }
 
-p {
+.login-page p {
   color: #001133;
 }
 
-a {
+.login-page a {
   color: #002a6e;
   text-decoration: none;
   font-weight: bold;
 }
 
-a:hover {
+.login-page a:hover {
   text-decoration: underline;
 }
 

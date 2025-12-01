@@ -1,23 +1,36 @@
-<div id="container">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Calendário Acadêmico</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="login-page" id="container">
 
-  <!-- Tela de Login -->
-  <div id="login-screen" class="screen active">
-    <h2>Login</h2>
-    <input id="login-email" type="email" placeholder="Email"><br>
-    <input id="login-password" type="password" placeholder="Senha"><br>
-    <button onclick="login()">Entrar</button>
+      <!-- Tela de Login -->
+      <div id="login-screen" class="screen active">
+        <h2>Login</h2>
+        <input id="login-email" type="email" placeholder="Email"><br>
+        <input id="login-password" type="password" placeholder="Senha"><br>
+        <button onclick="login()">Entrar</button>
 
-    <p>Ainda não tem conta? <a href="#" onclick="showRegister()">Cadastre-se</a></p>
-  </div>
+        <p>Ainda não tem conta? <a href="#" onclick="showRegister()">Cadastre-se</a></p>
+      </div>
 
-  <!-- Tela de Cadastro -->
-  <div id="register-screen" class="screen">
-    <h2>Cadastro</h2>
-    <input id="reg-name" type="text" placeholder="Nome completo"><br>
-    <input id="reg-email" type="email" placeholder="Email"><br>
-    <input id="reg-password" type="password" placeholder="Senha"><br>
-    <button onclick="register()">Cadastrar</button>
+      <!-- Tela de Cadastro -->
+      <div id="register-screen" class="screen">
+        <h2>Cadastro</h2>
+        <input id="reg-name" type="text" placeholder="Nome completo"><br>
+        <input id="reg-email" type="email" placeholder="Email"><br>
+        <input id="reg-password" type="password" placeholder="Senha"><br>
+        <button onclick="register()">Cadastrar</button>
 
-    <p>Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
-  </div>
-</div>
+        <p>Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
