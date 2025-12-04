@@ -14,7 +14,7 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Estilo do modal */
+/* Estilo do modal - aparência da janela modal */
 .modal {
   display: none;
   position: fixed;
@@ -51,7 +51,7 @@ body {
 
 /* ===== LOGIN STYLES (migrated from login.css) ===== */
 
-/* Scopo os estilos de login com a classe .login-page para evitar conflitos com o calendário */
+/* Escopo os estilos de login com a classe .login-page para evitar conflitos com o calendário */
 .login-page {
   font-family: Arial, sans-serif;
   background: #001133; /* azul muito escuro */
@@ -64,10 +64,10 @@ body {
 .login-page #container {
   width: 300px;
   padding: 20px;
-  background: white; /* branco */
+  background: white; /* branco */ /* fundo do container de login */
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,0,0,0.6);
-  border-top: 4px solid #002a6e; /* azul escuro */
+  border-top: 4px solid #002a6e; /* azul escuro */ /* destaque superior */
   color: #001133; /* texto interno escuro */
 }
 
@@ -124,7 +124,7 @@ body {
 
 /* ===== end login styles ===== */
 
-/* Styles for authentication modal */
+/* Estilos para o modal de autenticação */
 .auth-modal-content {
   width: 340px;
   padding: 16px;

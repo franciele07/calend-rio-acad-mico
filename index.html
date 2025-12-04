@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calendário Acadêmico</title>
 
-    <!-- FullCalendar (CDN) -->
+    <!-- FullCalendar (CDN) --> <!-- Biblioteca de calendário -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
 
-    <!-- CSS locais -->
+    <!-- CSS locais --> <!-- Folha de estilos personalizada -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="calendar"></div>
 
-    <!-- Modal simples para editar eventos -->
+    <!-- Modal simples para editar eventos --> <!-- Modal para editar eventos do calendário -->
     <div id="eventModal" class="modal">
       <div class="modal-content">
         <h3>Editar Evento</h3>
@@ -25,11 +25,11 @@
       </div>
     </div>
 
-    <!-- Scripts: FullCalendar (CDN) e JS locais -->
+    <!-- Scripts: FullCalendar (CDN) e JS locais --> <!-- Scripts do calendário e lógica da aplicação -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
     <script src="app.js"></script>
     
-    <!-- Autenticação modal (mostrada quando o usuário dá 2 cliques para adicionar evento) -->
+    <!-- Autenticação modal (mostrada quando o usuário dá 2 cliques para adicionar evento) --> <!-- Modal de autenticação -->
     <div id="authModal" class="modal">
       <div class="modal-content auth-modal-content">
         <h3>Autenticação</h3>

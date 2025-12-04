@@ -1,6 +1,6 @@
-// app.js - concatenated from javascript.js + login.js
+// app.js - concatenado de javascript.js + login.js
 
-// ----- javascript.js content -----
+// ----- conteúdo de javascript.js -----
 document.addEventListener('DOMContentLoaded', function () {
   let calendarEl = document.getElementById('calendar');
   let modal = document.getElementById('eventModal');
@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
   let closeBtn = document.getElementById('closeModal');
   let currentEvent = null;
   
-  // authentication modal elements
+  // elementos do modal de autenticação
   let authModal = document.getElementById('authModal');
   let authEmail = document.getElementById('authEmail');
   let authPassword = document.getElementById('authPassword');
   let authSubmit = document.getElementById('authSubmit');
   let authCancel = document.getElementById('authCancel');
 
-  // Double click detection vars
+  // Variáveis para detecção de duplo clique
   let lastClickTime = 0;
   let lastClickDateStr = '';
   let singleClickTimer = null;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
       right: 'dayGridMonth,timeGridWeek,listWeek'
     },
     dateClick: function (info) {
-      // double-click detection: schedule single click action; if second click within threshold, handle as double click
+          // detecção de duplo clique: agenda ação de clique simples; se houver segundo clique dentro do limite, trata como duplo clique
       const clicked = new Date(info.date.getFullYear(), info.date.getMonth(), info.date.getDate());
       const clickedStr = clicked.toISOString().split('T')[0];
       const now = Date.now();
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // schedule single click action after threshold to let the second click (if any) cancel it
+      // agenda ação de clique simples após o limite para permitir que o segundo clique (se houver) cancele
       lastClickTime = now;
       lastClickDateStr = clickedStr;
       if (singleClickTimer) clearTimeout(singleClickTimer);
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }, DOUBLE_THRESHOLD);
       
-      // single-click behavior now executed by scheduled timer (see above)
+      // comportamento de clique simples agora executado pelo timer agendado (veja acima)
     },
     eventClick: function (info) {
       currentEvent = info.event;
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.onclick = function (event) {
     if (event.target === modal) modal.style.display = 'none';
-    // close the auth modal when clicking outside
+    // fecha o modal de autenticação ao clicar fora
     if (event.target === authModal) authModal.style.display = 'none';
   };
   
-  // auth handlers
+  // manipuladores de autenticação
   authCancel && (authCancel.onclick = function () {
     authModal.style.display = 'none';
     pendingDate = null;
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
   authSubmit && (authSubmit.onclick = function () {
     const emailVal = authEmail.value.trim();
     const passVal = authPassword.value.trim();
-    // simplistic auth - accept any non-empty credentials; replace with your auth logic
+    // autenticação simplificada - aceita qualquer credencial não vazia; substitua pela sua lógica de autenticação
     if (!emailVal || !passVal) {
       alert('Preencha email e senha.');
       return;
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     authPassword.value = '';
   });
 
-  // helper to create events for a date
+  // função auxiliar para criar eventos para uma data
   function createEventForDate(dateObj) {
     const clicked = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
     const today = new Date(); today.setHours(0,0,0,0);
